@@ -1,32 +1,29 @@
-import datetime
-now=datetime.datetime.now()
-annee_now=now.year
+from math import sqrt #on importe le module permettant de calculer des racines carrées
 
-print ("Bonjour")
-nom1=input ("Comment t'appelles tu ?")
-annee1=input ("Et en quelle année es-tu né(e)?")
+print("Bonjour et bienvenue dans ce programme de calcul des racines d'une fonction du deuxième degré.")#on affiche un message de bienvenue
+print("Dans l'équation y=ax²+bx+c,")#on précise le contexte et le nom des variables
 
-nom2=input ("Quel est le nom de ta voisinne/ton voisin?")
-annee2=input ("Et en quelle année est-elle (il) né(e)?")
+a=input("Quelle est la valeur de a? ")#on récupère la valeur de a et on la stocke dans la variable a
+b=input("Quelle est la valeur de b? ")#même chose pour b
+c=input("Quelle est la valeur de c? ")#même chose pour c
 
-annee1=int (annee1)
-age1=now.year-annee1
+a=float(a) #on converti en un nombre décimal
+b=float(b) #même chose
+c=float(c) #même chose
 
-annee2=int (annee2)
-age2=now.year-annee2
+delta=b**2-4*a*c
 
-print(nom1,"a",age1,"ans")
-print(nom2,"a",age2,"ans")
+if delta==0:
+  x1= -b/2*a
+  print("la racine est",x1)
 
-if age1>age2:
-  difference=age1-age2
-  print(nom1,"est plus agé que",nom2)
-  print(nom1,"a",difference,"années de plus que",nom2)
-elif age1<age2:
-   difference=age2-age1
-  print(nom2,"est plus agé que",nom1)
-  print(nom2,"a",difference,"années de plus que",nom1)
-elif age1==age2:
-  print(nom1,"et",nom2,"ont le même age.")
-else:
-  print("MAIS T BÊTE OU QUOI TU REFLECHIS COMME JOSUE")
+elif delta>0:
+  x1= (-b-sqrt(delta))/2*a
+  x2= (-b+sqrt(delta))/2*a
+  print("les racines sont",round(x1,3),"et",round(x2,3))
+
+elif delta<0:
+  print("il n'y a pas de racine")
+
+else: 
+  print("alors toi t'es vraiment débile on dirait LILIA")
